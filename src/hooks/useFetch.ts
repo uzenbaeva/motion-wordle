@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-const API_URL = ' https://piccolo-server.vercel.app/words';
+const API_URL = 'https://piccolo-server.vercel.app/words';
 
 const useFetch = () => {
   const [randomWord, setRandomWord] = useState<string>('');
@@ -20,8 +20,11 @@ const useFetch = () => {
 
   const getRandomWord = async () => {
     const words = await fetchWords();
-    const randomIndex = Math.floor(Math.random() * words.length);
-    return words[randomIndex];
+    if (words){
+      const randomIndex = Math.floor(Math.random() * words.length);
+      return words[randomIndex];
+    } 
+    return '';
   };
 
   useEffect(() => {
