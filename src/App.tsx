@@ -1,8 +1,8 @@
-import Wordly from "./pages";
+import Game from "./pages/Game";
 
 function App() {
   return (
-    <Wordly />
+    <Game />
   );
 }
 

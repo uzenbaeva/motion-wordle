@@ -1,0 +1,41 @@
+.square__input {
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #908d8d;
+  border-radius: 12px;
+  margin: 10px;
+  margin-bottom: 12px;
+  font-size: 30px;
+  text-align: center;
+  background: #c9c7c7;
+  font-family: sans-serif;
+  font-weight: normal;
+}
+
+.correct{
+  background-color: green;
+  color: white;
+}
+
+.present {
+  background-color: yellow;
+  color: white;
+}
+
+.incorrect {
+  background-color: gray;
+  color: red;
+}

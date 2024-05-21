@@ -22,6 +22,7 @@ const useFetch = () => {
     const words = await fetchWords();
     if (words){
       const randomIndex = Math.floor(Math.random() * words.length);
+
       return words[randomIndex];
     } 
     return '';
