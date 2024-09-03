@@ -13,18 +13,15 @@
     padding: 10px 20px;
     font-size: 16px;
     border: none;
+    border: solid 1px #f6fbf5;
     border-radius: 4px;
-    background-color: #6aaa64;
+    background-color: #0d264a;
     color: #fff;
     cursor: pointer;
   }
   
   button:hover {
-    background-color: #5a9a54;
+    background-color: #f6fbf5;
+    color: #0d264a;
+    border: solid 1px #0d264a;
   }
-  
-  
-    
-    
-    
-    
