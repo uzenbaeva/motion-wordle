@@ -1,46 +1,38 @@
 import { useEffect, useState } from "react";
+
 const API_URL = 'https://piccolo-server.vercel.app/words';
 
+interface FetchData {
+  success: boolean;
+  data: string[];
+}
+
 const useFetch = () => {
-  const [randomWord, setRandomWord] = useState<string>('');
+  const [data, setData] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const fetchWords = async () => {
-    let response;
+
+  const fetchData = async () => {
+    setIsLoading(true);
     try {
-      response = await fetch(API_URL);
-      const data = await response.json();
-      if (data.success){
-        return data.data;
+      const response = await fetch(API_URL);
+      const result: FetchData = await response.json();
+      if (result.success) {
+        setData(result.data);
       }
+    } catch (error) {
+      console.error('Ошибка при получении данных:', error);
+    } finally {
+      setIsLoading(false);
     }
-    catch (error){
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  const getRandomWord = async () => {
-    const words = await fetchWords();
-    if (words){
-      const randomIndex = Math.floor(Math.random() * words.length);
-
-      return words[randomIndex];
-    } 
-    return '';
   };
 
   useEffect(() => {
-    const fetchRandomWord = async () => {
-      setIsLoading(true);
-      const word = await getRandomWord();
-      setIsLoading(false);
-      setRandomWord(word);
-    };
-    fetchRandomWord();
+    fetchData();
   }, []);
 
   return {
-    isLoading: isLoading,
-    word: randomWord,
+    isLoading,
+    data,
   };
 }
 
